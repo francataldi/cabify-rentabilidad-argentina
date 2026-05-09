@@ -42,10 +42,13 @@ def scrape_modelo(page, slug, nombre, paginas=5):
                 try:
                     titulo_el = pub.query_selector("a.poly-component__title")
                     titulo = titulo_el.inner_text() if titulo_el else None
-
+                    
                     precio_el = pub.query_selector("span.andes-money-amount__fraction")
                     precio_txt = precio_el.inner_text() if precio_el else None
-                    precio_usd = float(precio_txt.replace(".", "").replace(",", ".")) if precio_txt else None
+                    precio = float(precio_txt.replace(".", "").replace(",", ".")) if precio_txt else None
+
+                    moneda_el = pub.query_selector("span.andes-money-amount__currency-symbol")
+                    moneda = moneda_el.inner_text().strip() if moneda_el else None
 
                     atributos = pub.query_selector_all("li.poly-attributes_list__item")
                     año = atributos[0].inner_text().strip() if len(atributos) > 0 else None
@@ -57,7 +60,8 @@ def scrape_modelo(page, slug, nombre, paginas=5):
                     resultados.append({
                         "modelo": nombre,
                         "titulo": titulo,
-                        "precio_usd": precio_usd,
+                        "precio": precio,
+                        "moneda": moneda,
                         "año": año,
                         "km": km,
                         "ubicacion": ubicacion
