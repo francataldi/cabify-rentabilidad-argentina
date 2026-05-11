@@ -1,5 +1,11 @@
 # 🚗 Análisis de Rentabilidad de Vehículos para Cabify en Argentina
 
+## 🏆 Resultado principal
+El **VW Gol con GNC** es el auto más rentable para Cabify en AMBA:
+- Ganancia neta mensual: ~$926 USD
+- Recupero de inversión: 6.6 meses
+- Ventaja clave: combina el precio de entrada más bajo con el combustible más barato
+
 ## 📌 Descripción
 Proyecto de Data Science que analiza qué vehículo es más rentable para trabajar
 en plataformas de ride-hailing (Cabify) en Argentina, considerando costos de
