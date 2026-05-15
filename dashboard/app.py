@@ -1,3 +1,4 @@
+import os
 import sys
 
 import matplotlib.patches as mpatches
@@ -6,11 +7,8 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-sys.path.append("..")
-import requests
-from bs4 import BeautifulSoup
-
-from src.modelo import PARAMETROS
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from src.modelo import PARAMETROS, calcular_rentabilidad
 
 # ============================================================
 # CONFIGURACIÓN DE LA PÁGINA
@@ -55,7 +53,7 @@ st.caption(f"💱 Tipo de cambio dólar blue (venta): ${TIPO_CAMBIO:,.0f} ARS �
 # ============================================================
 @st.cache_data
 def cargar_datos():
-    return pd.read_csv("../data/processed/precios_autos_procesado.csv")
+    return pd.read_csv("dashboard/precios_autos_procesado.csv")
 
 df = cargar_datos()
 precio_mediano = df.groupby("modelo")["precio_usd"].median()
@@ -139,7 +137,6 @@ p["precio_nafta_ars_litro"] = precio_nafta
 p["precio_gnc_ars_m3"] = precio_gnc
 p["seguro_mensual_ars"] = seguro
 
-from src.modelo import calcular_rentabilidad
 
 resultados = []
 for modelo in consumo_por_modelo:
