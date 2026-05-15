@@ -47,8 +47,11 @@ tomar una decisión informada sobre qué auto comprar para maximizar sus ingreso
     pip install -r requirements.txt
     jupyter lab
 
-## 📊 Dashboard
-_Próximamente disponible en Streamlit Cloud_
+## 📊 Dashboard interactivo
+🚀 **[Ver dashboard en vivo](https://cabify-rentabilidad-argentina.streamlit.app)**
+
+Permite configurar parámetros personalizados (km diarios, precio de nafta, GNC, seguro)
+y obtener un ranking de rentabilidad en tiempo real para tu perfil de conductor.
 
 ## 👤 Autor
 Franco Cataldi Gagliardi · [LinkedIn](https://www.linkedin.com/in/franco-cataldi-gagliardi-2347a9268/) · [GitHub](https://github.com/francataldi).
