@@ -17,8 +17,8 @@ PARAMETROS = {
     "dias_laborales_mes": 26,                  # lunes a sábado
 
     # Combustible (nafta super AMBA, mayo 2025)
-    "precio_nafta_ars_litro": 1100,
-    "precio_gnc_ars_m3": 280,
+    "precio_nafta_ars_litro": 2034,
+    "precio_gnc_ars_m3": 500,
 
     # Seguro (todo riesgo promedio AMBA)
     "seguro_mensual_ars": 180_000,

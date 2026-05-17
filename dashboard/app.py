@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.modelo import PARAMETROS, calcular_rentabilidad
+from src.precios_combustible import get_precios_combustible
 
 # ============================================================
 # CONFIGURACIÓN DE LA PÁGINA
@@ -58,7 +59,16 @@ def get_tipo_cambio():
         return 1420.0
 
 TIPO_CAMBIO = get_tipo_cambio()
-st.caption(f"💱 Tipo de cambio dólar blue (venta): ${TIPO_CAMBIO:,.0f} ARS — actualizado automáticamente")
+
+@st.cache_data(ttl=3600)
+def get_precios_combustible_cached():
+    return get_precios_combustible()
+
+precios_comb = get_precios_combustible_cached()
+PRECIO_NAFTA_AUTO = precios_comb["nafta_super"]
+PRECIO_GNC_AUTO = precios_comb["gnc"]
+
+st.caption(f"💱 Dólar blue: ${TIPO_CAMBIO:,.0f} ARS | ⛽ Nafta Súper CABA: ${PRECIO_NAFTA_AUTO:,.0f} ARS/litro — actualizados automáticamente")
 
 # ============================================================
 # DATOS BASE
@@ -115,7 +125,7 @@ st.sidebar.caption("Precio actual de la nafta super en tu zona. Consultá en sur
 precio_nafta = st.sidebar.slider(
     "Precio nafta",
     min_value=700, max_value=3000,
-    value=1350, step=50,
+    value=int(PRECIO_NAFTA_AUTO), step=50,
     format="$%d",
     label_visibility="collapsed"
 )
@@ -125,7 +135,7 @@ st.sidebar.caption("Precio del metro cúbico de GNC en tu zona.")
 precio_gnc = st.sidebar.slider(
     "Precio GNC",
     min_value=150, max_value=1000,
-    value=540, step=10,
+    value=int(PRECIO_GNC_AUTO), step=10,
     format="$%d",
     label_visibility="collapsed"
 )
