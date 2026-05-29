@@ -53,7 +53,7 @@ y **10.000 escenarios simulados** por modelo mediante Montecarlo.
 ## 📊 Datos
 
 - **Fuente:** MercadoLibre Argentina — sección autos usados
-- **Período de scraping:** Mayo 2025
+- **Período de scraping:** 1er mitad de 2026
 - **Registros totales:** 3.780 publicaciones scrapeadas → 3.690 tras limpieza
 - **Modelos analizados:** 13 (de 16 originales, se excluyeron los sin mercado de usados representativo)
 - **Tipo de cambio:** dólar blue scrapeado en tiempo real desde dolarhoy.com
