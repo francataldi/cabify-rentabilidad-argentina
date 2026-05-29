@@ -4,6 +4,8 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red?logo=streamlit)
 ![Playwright](https://img.shields.io/badge/Scraping-Playwright-green?logo=playwright)
 ![Status](https://img.shields.io/badge/Status-Completado-brightgreen)
+![Montecarlo](https://img.shields.io/badge/Simulación-Montecarlo-purple)
+![Argentina](https://img.shields.io/badge/Mercado-Argentina-lightblue)
 
 ## 🚀 Dashboard interactivo
 **[→ Ver dashboard en vivo](https://cabify-rentabilidad-argentina.streamlit.app)**
