@@ -10,7 +10,7 @@ import streamlit as st
 from bs4 import BeautifulSoup
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from src.modelo import PARAMETROS, calcular_rentabilidad
+from src.modelo import MANTENIMIENTO_POR_KM_ARS, PARAMETROS, calcular_rentabilidad
 from src.precios_combustible import get_precios_combustible
 
 # ============================================================
@@ -184,6 +184,7 @@ for modelo in consumo_por_modelo:
         consumo_l_100km=consumo_por_modelo[modelo],
         tiene_gnc=tiene_gnc[modelo],
         tipo_cambio=TIPO_CAMBIO,
+        costo_mantenimiento_km=MANTENIMIENTO_POR_KM_ARS[modelo],
         parametros=p
     )
     r["modelo"] = modelo
@@ -318,7 +319,8 @@ st.divider()
 st.subheader("📋 Tabla comparativa completa")
 tabla = df_res[[
     "precio_compra_usd", "ganancia_neta_usd", "payback_meses",
-    "costo_combustible_ars", "amortizacion_mensual_ars", "tiene_gnc"
+    "costo_combustible_ars", "amortizacion_mensual_ars",
+    "mantenimiento_mensual_ars", "tiene_gnc"
 ]].sort_values("ganancia_neta_usd", ascending=False).copy()
 
 tabla["ganancia_neta_usd"] = tabla["ganancia_neta_usd"].apply(
@@ -328,7 +330,8 @@ tabla["payback_meses"] = tabla["payback_meses"].apply(
     lambda x: f"{x:.1f} meses" if x > 0 else "N/A"
 )
 tabla.columns = ["Precio compra (USD)", "Ganancia/mes (USD)", "Payback",
-                 "Combustible (ARS)", "Amortización (ARS)", "GNC"]
+                 "Combustible (ARS)", "Amortización (ARS)",
+                 "Mantenimiento (ARS)", "GNC"]
 tabla["GNC"] = tabla["GNC"].map({True: "✅", False: "❌"})
 
 st.dataframe(tabla, use_container_width=True)
