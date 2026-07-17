@@ -13,3 +13,6 @@ data/processed/*.csv
 # Cache
 __pycache__/
 *.pyc
+
+# Modelos ML entrenados — se regeneran con notebooks/06
+models/*.joblib
