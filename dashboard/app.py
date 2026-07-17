@@ -27,7 +27,7 @@ st.set_page_config(
 # ============================================================
 st.title("🚗 ¿Qué auto es más rentable para Cabify en Argentina?")
 st.markdown("""
-Analizá la rentabilidad de 13 modelos de autos usados para trabajar en Cabify en AMBA.
+Analizá la rentabilidad de 15 modelos de autos usados para trabajar en Cabify en AMBA.
 Ajustá los parámetros según tu situación y obtené un ranking personalizado.
 """)
 
@@ -84,16 +84,18 @@ año_mediano = df.groupby("modelo")["año"].median().astype(int)
 
 consumo_por_modelo = {
     "Toyota Etios": 8.5, "Toyota Corolla": 9.0, "Toyota Yaris": 8.0,
-    "Chevrolet Prisma": 8.5, "Renault Logan": 8.0, "Nissan Versa": 9.0,
-    "VW Virtus": 8.5, "VW Voyage": 9.5, "VW Gol": 9.0,
-    "Ford Ka": 8.0, "Ford Fiesta": 9.0, "Fiat Siena": 9.5, "Peugeot 208": 7.5,
+    "Chevrolet Prisma": 8.5, "Chevrolet Onix Plus": 7.8, "Renault Logan": 8.0,
+    "Nissan Versa": 9.0, "VW Virtus": 8.5, "VW Voyage": 9.5, "VW Gol": 9.0,
+    "Ford Ka": 8.0, "Ford Fiesta": 9.0, "Fiat Siena": 9.5, "Fiat Cronos": 8.4,
+    "Peugeot 208": 7.5,
 }
 
 tiene_gnc = {
     "Toyota Etios": False, "Toyota Corolla": False, "Toyota Yaris": False,
-    "Chevrolet Prisma": True, "Renault Logan": True, "Nissan Versa": False,
-    "VW Virtus": False, "VW Voyage": True, "VW Gol": True,
-    "Ford Ka": False, "Ford Fiesta": False, "Fiat Siena": True, "Peugeot 208": False,
+    "Chevrolet Prisma": True, "Chevrolet Onix Plus": False, "Renault Logan": True,
+    "Nissan Versa": False, "VW Virtus": False, "VW Voyage": True, "VW Gol": True,
+    "Ford Ka": False, "Ford Fiesta": False, "Fiat Siena": True, "Fiat Cronos": True,
+    "Peugeot 208": False,
 }
 
 # ============================================================
