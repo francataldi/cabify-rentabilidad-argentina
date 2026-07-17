@@ -16,3 +16,6 @@ __pycache__/
 
 # Modelos ML entrenados — se regeneran con notebooks/06
 models/*.joblib
+
+# Claude Code
+.claude/
