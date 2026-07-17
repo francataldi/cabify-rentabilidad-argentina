@@ -337,4 +337,4 @@ tabla["GNC"] = tabla["GNC"].map({True: "✅", False: "❌"})
 st.dataframe(tabla, use_container_width=True)
 
 st.divider()
-st.caption("Proyecto de Data Science — Franco Cataldi Gagliardi | Datos: MercadoLibre, DolarHoy.com | 2025")
+st.caption("Proyecto de Data Science — Franco Cataldi Gagliardi | Datos: MercadoLibre, DolarHoy.com | 2026")
